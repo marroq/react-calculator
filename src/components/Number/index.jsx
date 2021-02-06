@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Number = ({inputNumber = 0, onPushed}) => (
+const Number = ({inputNumber, displayNumber, onPushed}) => (
     <div>
-        <button onClick={() => onPushed(inputNumber) }>
-            {inputNumber}
+        <button onClick={ () => onPushed(inputNumber + displayNumber)} >
+            {displayNumber}
         </button>
     </div>
 );
