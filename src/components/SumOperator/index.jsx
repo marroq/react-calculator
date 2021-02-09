@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SumOperator = ({ operands= [], onSum }) => (
+const SumOperator = ({ firstOperand, secondOperand, onSum }) => (
     <div>
-        <button onClick={() => onSum (operands.map(operand) +=operand ) }>
-            {displayOperator}
+        <button onClick={ () => onSum(firstOperand + secondOperand) }>
+            +
         </button>
     </div>
 );
 
-Operator.propTypes = {
+SumOperator.propTypes = {
     operands: PropTypes.arrayOf(PropTypes.shape).isRequired,
     onSum: PropTypes.func.isRequired,
 };
