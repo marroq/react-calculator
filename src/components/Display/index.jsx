@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Display = ({ number, changeNumber }) => (
     <div>
-        <input type="text" value={number} onChange={() => changeNumber(number) } /> 
+        <input type="text" readOnly value={number} onChange={() => changeNumber(number) } /> 
     </div>
 );
 
