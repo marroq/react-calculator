@@ -1,17 +1,9 @@
 import React from 'react';
-import Number from './components/Number';
+import Calculator from './components/Calculator';
 
 const App= () => {
-  const[number, setNumber] = React.useState(0);
-
   return (
-    <div>
-      <Number
-        inputNumber={5}
-        onPushed = {(inputNumber) => setNumber(number + 1)}
-      />
-      {number}
-    </div>
+    <Calculator/>
   );
 }
 

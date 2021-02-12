@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Number = ({inputNumber = 0, onPushed}) => (
+const Number = ({displayNumber}) => (
     <div>
-        <button onClick={() => onPushed(inputNumber) }>
-            {inputNumber}
+        <button>
+            {displayNumber}
         </button>
     </div>
 );
 
 Number.propTypes = {
-    inputNumber: PropTypes.number.isRequired,
+    displayNumber: PropTypes.string.isRequired,
 };
 
 export default Number;
