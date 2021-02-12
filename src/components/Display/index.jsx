@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Display = ({ number, changeNumber }) => (
+const Display = ({ number }) => (
     <div>
-        <input type="text" readOnly value={number} onChange={() => changeNumber(number) } /> 
+        <input type="text" readOnly value={number} /> 
     </div>
 );
 
 Display.propTypes = {
     number: PropTypes.number.isRequired,
-    changeNumber: PropTypes.func.isRequired,
 };
 
 export default Display;
