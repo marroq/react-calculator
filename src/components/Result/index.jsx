@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Result = () => (
+const Result = ({ operate }) => (
     <div>
         <button>
             =
@@ -10,7 +10,7 @@ const Result = () => (
 );
 
 Result.propTypes = {
-    result: PropTypes.string.isRequired,
+    operate: PropTypes.bool.isRequired,
 };
 
 export default Result;
