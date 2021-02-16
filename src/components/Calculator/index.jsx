@@ -17,18 +17,21 @@ const Calculator = () => {
                         <Number 
                             displayNumber={7}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={8}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={9}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                 </tr>
@@ -37,18 +40,21 @@ const Calculator = () => {
                         <Number 
                             displayNumber={4}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={5}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={6}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                 </tr>
@@ -57,18 +63,21 @@ const Calculator = () => {
                         <Number 
                             displayNumber={1}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={2}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={3}
                             currentNumber={currentNumber}
+                            setCurrentNumber={setCurrentNumber}
                         />
                     </td>
                 </tr>
