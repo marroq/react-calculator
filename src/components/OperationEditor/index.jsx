@@ -4,7 +4,7 @@ import CurrentOperation from '../CurrentOperation';
 import Operate from '../Operate';
 
 const OperationEditor = ({ currentNumber }) => {
-    const[currentOperation, setCurrentOperation] = React.useState([]);
+    
     const[operate, setOperate] = React.useState(false);
 
     return (

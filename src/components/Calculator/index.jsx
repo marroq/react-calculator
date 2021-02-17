@@ -5,6 +5,15 @@ import OperationEditor from '../OperationEditor';
 
 const Calculator = () => {
     const[currentNumber, setCurrentNumber] = React.useState('');
+    const[currentOperation, setCurrentOperation] = React.useState([]);
+
+    handlerCurrentOperation = (elementOperation) => {
+        setCurrentOperation([...currentOperation, elementOperation]);
+    }
+
+    handlerCurrentNumber = (number) => {
+        setCurrentNumber(currentNumber + number);
+    }
     
     return (
         <div align="center">
@@ -16,22 +25,19 @@ const Calculator = () => {
                     <td>
                         <Number 
                             displayNumber={7}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={8}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={9}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                 </tr>
@@ -39,22 +45,19 @@ const Calculator = () => {
                     <td>
                         <Number 
                             displayNumber={4}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={5}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={6}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                 </tr>
@@ -62,22 +65,19 @@ const Calculator = () => {
                     <td>
                         <Number 
                             displayNumber={1}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={2}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                     <td>
                         <Number 
                             displayNumber={3}
-                            currentNumber={currentNumber}
-                            setCurrentNumber={setCurrentNumber}
+                            setCurrentNumber={handlerCurrentNumber}
                         />
                     </td>
                 </tr>

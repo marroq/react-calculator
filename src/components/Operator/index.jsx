@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Operator = ({ operator }) => (
+const Operator = ({ operator, displayOperator, setOperator }) => (
     <div>
-        <button>
-            {operator}
+        <button onClick={() => setOperator(displayOperator)}>
+            {displayOperator}
         </button>
     </div>
 );
