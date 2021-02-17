@@ -11,7 +11,6 @@ const Number = ({displayNumber, setCurrentNumber}) => (
 
 Number.propTypes = {
     displayNumber: PropTypes.string.isRequired,
-    currentNumber: PropTypes.string.isRequired,
     setCurrentNumber: PropTypes.func.isRequired,
 };
 

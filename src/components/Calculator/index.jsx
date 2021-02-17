@@ -1,20 +1,25 @@
 import React from 'react';
 import Display from '../Display';
 import Number from '../Number';
-import OperationEditor from '../OperationEditor';
+import Operator from '../Operator';
+import Result from '../Result';
 
 const Calculator = () => {
     const[currentNumber, setCurrentNumber] = React.useState('');
     const[currentOperation, setCurrentOperation] = React.useState([]);
 
-    handlerCurrentOperation = (elementOperation) => {
+    let handlerCurrentOperation = (elementOperation) => {
         setCurrentOperation([...currentOperation, elementOperation]);
     }
 
-    handlerCurrentNumber = (number) => {
+    let handlerCurrentNumber = (number) => {
         setCurrentNumber(currentNumber + number);
     }
-    
+
+    let handlerResult = () => {
+        setCurrentNumber('');
+    }
+
     return (
         <div align="center">
             <Display
@@ -81,10 +86,39 @@ const Calculator = () => {
                         />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <Operator 
+                            displayOperator={'+'}
+                            setOperator={handlerCurrentOperation}
+                        
+                        />
+                    </td>
+                    <td>
+                        <Operator
+                            displayOperator={'-'}
+                            setOperator={handlerCurrentOperation}
+                        />
+                    </td>
+                    <td>
+                        <Operator
+                            displayOperator={'*'}
+                            setOperator={handlerCurrentOperation}
+                        />
+                    </td>
+                    <td>
+                        <Operator
+                            displayOperator={'/'}
+                            setOperator={handlerCurrentOperation}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <Result
+                        setResult={handlerResult}
+                    />
+                </tr>
             </table>
-            <OperationEditor
-                currentNumber={currentNumber}
-            />
         </div>
     );
 };

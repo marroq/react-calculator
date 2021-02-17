@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Operator = ({ operator, displayOperator, setOperator }) => (
+const Operator = ({ displayOperator, setOperator }) => (
     <div>
         <button onClick={() => setOperator(displayOperator)}>
             {displayOperator}
@@ -10,7 +10,8 @@ const Operator = ({ operator, displayOperator, setOperator }) => (
 );
 
 Operator.propTypes = {
-    operator: PropTypes.string.isRequired,
+    displayOperator: PropTypes.string.isRequired,
+    setOperator: PropTypes.func.isRequired,
 };
 
 export default Operator;
