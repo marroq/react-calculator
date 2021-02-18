@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Operator = ({ operator }) => (
+const Operator = ({ displayOperator, setOperator }) => (
     <div>
-        <button>
-            {operator}
+        <button onClick={() => setOperator(displayOperator)}>
+            {displayOperator}
         </button>
     </div>
 );
 
 Operator.propTypes = {
-    operator: PropTypes.string.isRequired,
+    displayOperator: PropTypes.string.isRequired,
+    setOperator: PropTypes.func.isRequired,
 };
 
 export default Operator;

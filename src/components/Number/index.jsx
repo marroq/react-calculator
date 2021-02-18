@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Number = ({displayNumber, currentNumber, setCurrentNumber}) => (
+const Number = ({displayNumber, setCurrentNumber}) => (
     <div>
-        <button onClick={() => setCurrentNumber(currentNumber + displayNumber)}>
+        <button onClick={() => setCurrentNumber(displayNumber)}>
             {displayNumber}
         </button>
     </div>
@@ -11,7 +11,6 @@ const Number = ({displayNumber, currentNumber, setCurrentNumber}) => (
 
 Number.propTypes = {
     displayNumber: PropTypes.string.isRequired,
-    currentNumber: PropTypes.string.isRequired,
     setCurrentNumber: PropTypes.func.isRequired,
 };
 

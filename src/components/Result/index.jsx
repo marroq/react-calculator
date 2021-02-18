@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Result = ({ operate }) => (
+const Result = ({ setResult }) => (
     <div>
-        <button>
+        <button onClick={() => setResult()}>
             =
         </button>
     </div>
 );
 
 Result.propTypes = {
-    operate: PropTypes.bool.isRequired,
+    setResult: PropTypes.func.isRequired,
 };
 
 export default Result;
