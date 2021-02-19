@@ -6,13 +6,19 @@ import Result from '../Result';
 
 const Calculator = () => {
     const[currentNumber, setCurrentNumber] = React.useState('');
-    const[currentOperation, setCurrentOperation] = React.useState([]);
+    const[currentOperations, setCurrentOperation] = React.useState([]);
+    const[saveOperation, setSaveOperation] = React.useState(false);
 
-    let handlerCurrentOperation = (elementOperation) => {
-        setCurrentOperation([...currentOperation, elementOperation]);
+    let handlerCurrentOperation = (operand, operator) => {
+        setCurrentOperation([...currentOperations, operand, operator]);
+    }
+
+    let handlerNumberReset = () => {
+        setCurrentNumber('');
     }
 
     let handlerCurrentNumber = (number) => {
+        setSaveOperation(true);
         setCurrentNumber(currentNumber + number);
     }
 
@@ -20,8 +26,27 @@ const Calculator = () => {
         setCurrentNumber('');
     }
 
+    let showOperation = () => {
+        let operation = '';
+
+        currentOperations.map((value) => (
+            operation+=value
+        ));
+
+        return operation;
+    }
+
+    let saveOperations = (operand, operator) => {
+        if (saveOperation) {
+            handlerCurrentOperation(operand, operator);
+            handlerNumberReset();
+            setSaveOperation(false);
+        }
+    }
+
     return (
         <div align="center">
+            <h2>{showOperation()}</h2>
             <Display
                 number={currentNumber}
             />
@@ -87,36 +112,51 @@ const Calculator = () => {
                     </td>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td>
+                        <Number
+                            displayNumber={0}
+                            setCurrentNumber={handlerCurrentNumber}
+                        />
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>
                         <Operator 
+                            operand={currentNumber}
                             displayOperator={'+'}
-                            setOperator={handlerCurrentOperation}
-                        
+                            setOperation={saveOperations}
                         />
                     </td>
                     <td>
                         <Operator
+                            operand={currentNumber}
                             displayOperator={'-'}
-                            setOperator={handlerCurrentOperation}
+                            setOperation={saveOperations}
                         />
                     </td>
                     <td>
                         <Operator
+                            operand={currentNumber}
                             displayOperator={'*'}
-                            setOperator={handlerCurrentOperation}
-                        />
-                    </td>
-                    <td>
-                        <Operator
-                            displayOperator={'/'}
-                            setOperator={handlerCurrentOperation}
+                            setOperation={saveOperations}
                         />
                     </td>
                 </tr>
                 <tr>
-                    <Result
-                        setResult={handlerResult}
-                    />
+                    <td>
+                        <Operator
+                            operand={currentNumber}
+                            displayOperator={'÷'}
+                            setOperation={saveOperations}
+                        />
+                    </td>
+                    <td>
+                        <Result
+                            setResult={handlerResult}
+                        />
+                    </td>
                 </tr>
             </table>
         </div>
