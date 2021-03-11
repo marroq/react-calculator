@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 const ClearDigit = ({ displayOperator, setDigit }) => (
     <div>
-        <button onClick={() => setDigit()}>
+        <Button variant="outlined" onClick={() => setDigit()}>
             {displayOperator}
-        </button>
+        </Button>
     </div>
 );
 

@@ -5,16 +5,27 @@ import Operator from '../Operator';
 import Result from '../Result';
 import ClearAll from '../ClearAll';
 import ClearDigit from '../ClearDigit';
+import { makeStyles } from '@material-ui/core/styles';
 
 const precedence = {
     DIVMULTI: 2,
     ADDSUBS: 1,
 }
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      ...theme.typography.button,
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(1),
+    },
+  }));
+
 const Calculator = () => {
     const[currentNumber, setCurrentNumber] = React.useState('');
     const[currentOperations, setCurrentOperations] = React.useState([]);
     const[saveOperation, setSaveOperation] = React.useState(false);
+
+    const classes = useStyles();
 
     let handlerCurrentOperations = (currentOperation) => {
         setCurrentOperations(currentOperation);
@@ -140,7 +151,7 @@ const Calculator = () => {
     }
 
     return (
-        <div align="center">
+        <div className={classes.root} align="center">
             <h2>{showOperation()}{currentNumber}</h2>
             <Display
                 number={currentNumber}

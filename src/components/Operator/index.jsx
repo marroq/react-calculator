@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 const Operator = ({ operand, displayOperator, setOperation }) => (
     <div>
-        <button onClick={() => setOperation(operand, displayOperator)}>
+        <Button size="large" variant="outlined" color="secondary" onClick={() => setOperation(operand, displayOperator)}>
             {displayOperator}
-        </button>
+        </Button>
     </div>
 );
 
