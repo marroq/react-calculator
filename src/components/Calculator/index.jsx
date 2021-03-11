@@ -3,6 +3,8 @@ import Display from '../Display';
 import Number from '../Number';
 import Operator from '../Operator';
 import Result from '../Result';
+import ClearAll from '../ClearAll';
+import ClearDigit from '../ClearDigit';
 
 const precedence = {
     DIVMULTI: 2,
@@ -26,10 +28,14 @@ const Calculator = () => {
         setCurrentNumber(currentNumber);
     }
 
-    let handlerCurrentNumberOperation = (number) => {
+    let handlerCurrentNumberDigit = () => {
+        setCurrentNumber(currentNumber.slice(0,currentNumber.length - 1));
+    }
+
+    let addDigit = (digit) => {
         if (!saveOperation)
             setSaveOperation(true);
-        setCurrentNumber(currentNumber + number);
+        setCurrentNumber(currentNumber + digit);
     }
 
     let showOperation = () => {
@@ -48,6 +54,15 @@ const Calculator = () => {
             handlerCurrentNumber('');
             setSaveOperation(false);
         }
+    }
+
+    let clearOperations = () => {
+        handlerCurrentOperations([]);
+        handlerCurrentNumber('');
+    }
+
+    let clearNumber = () => {
+        handlerCurrentNumber('');
     }
 
     let resolveOperation = (currentOperations, currentNumber, level) => {
@@ -133,87 +148,48 @@ const Calculator = () => {
             <table>
                 <tr>
                     <td>
-                        <Number 
-                            displayNumber={7}
-                            setCurrentNumber={handlerCurrentNumberOperation}
+                        <ClearDigit 
+                            displayOperator={'←'}
+                            setDigit={handlerCurrentNumberDigit}
                         />
                     </td>
                     <td>
-                        <Number 
-                            displayNumber={8}
-                            setCurrentNumber={handlerCurrentNumberOperation}
+                        <ClearAll
+                            displayOperator={'C'}
+                            setClear={clearNumber}
                         />
                     </td>
                     <td>
-                        <Number 
-                            displayNumber={9}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <Number 
-                            displayNumber={4}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                    <td>
-                        <Number 
-                            displayNumber={5}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                    <td>
-                        <Number 
-                            displayNumber={6}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <Number 
-                            displayNumber={1}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                    <td>
-                        <Number 
-                            displayNumber={2}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                    <td>
-                        <Number 
-                            displayNumber={3}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <Number
-                            displayNumber={0}
-                            setCurrentNumber={handlerCurrentNumberOperation}
-                        />
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <Operator 
-                            operand={currentNumber}
-                            displayOperator={'+'}
-                            setOperation={saveOperations}
+                        <ClearAll
+                            displayOperator={'AC'}
+                            setClear={clearOperations}
                         />
                     </td>
                     <td>
                         <Operator
                             operand={currentNumber}
-                            displayOperator={'-'}
+                            displayOperator={'÷'}
                             setOperation={saveOperations}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Number 
+                            displayNumber={7}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number 
+                            displayNumber={8}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number 
+                            displayNumber={9}
+                            setCurrentNumber={addDigit}
                         />
                     </td>
                     <td>
@@ -226,10 +202,70 @@ const Calculator = () => {
                 </tr>
                 <tr>
                     <td>
+                        <Number 
+                            displayNumber={4}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number 
+                            displayNumber={5}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number 
+                            displayNumber={6}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
                         <Operator
                             operand={currentNumber}
-                            displayOperator={'÷'}
+                            displayOperator={'-'}
                             setOperation={saveOperations}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Number 
+                            displayNumber={1}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number 
+                            displayNumber={2}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number 
+                            displayNumber={3}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Operator 
+                            operand={currentNumber}
+                            displayOperator={'+'}
+                            setOperation={saveOperations}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <Number
+                            displayNumber={0}
+                            setCurrentNumber={addDigit}
+                        />
+                    </td>
+                    <td>
+                        <Number
+                            displayNumber={'.'}
+                            setCurrentNumber={addDigit}
                         />
                     </td>
                     <td>
