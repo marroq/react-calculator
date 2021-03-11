@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 const Number = ({displayNumber, setCurrentNumber}) => (
     <div>
-        <button onClick={() => setCurrentNumber(displayNumber)}>
+        <Button size="large" variant="contained" color="primary" onClick={() => setCurrentNumber(displayNumber)}>
             {displayNumber}
-        </button>
+        </Button>
     </div>
 );
 

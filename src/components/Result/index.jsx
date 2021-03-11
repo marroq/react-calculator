@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 const Result = ({ currentNumber, currentOperations, setResult }) => (
     <div>
-        <button onClick={() => setResult(currentOperations, currentNumber, 2)}>
+        <Button size="large" variant="outlined" color="primary" onClick={() => setResult(currentOperations, currentNumber, 2)}>
             =
-        </button>
+        </Button>
     </div>
 );
 
