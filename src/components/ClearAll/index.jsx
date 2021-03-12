@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const ClearAll = ({ displayOperator, setClear }) => (
-    <div>
-        <Button variant="outlined" onClick={() => setClear()}>
-            {displayOperator}
-        </Button>
-    </div>
+    <Button variant="outlined" onClick={() => setClear()}>
+        {displayOperator}
+    </Button>
 );
 
 ClearAll.propTypes = {

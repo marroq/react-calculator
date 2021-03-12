@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const Operator = ({ operand, displayOperator, setOperation }) => (
-    <div>
-        <Button size="large" variant="outlined" color="secondary" onClick={() => setOperation(operand, displayOperator)}>
-            {displayOperator}
-        </Button>
-    </div>
+    <Button size="large" variant="outlined" color="secondary" onClick={() => setOperation(operand, displayOperator)}>
+        {displayOperator}
+    </Button>
 );
 
 Operator.propTypes = {

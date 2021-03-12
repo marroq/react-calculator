@@ -5,6 +5,7 @@ import Operator from '../Operator';
 import Result from '../Result';
 import ClearAll from '../ClearAll';
 import ClearDigit from '../ClearDigit';
+import Sign from '../Sign';
 import { makeStyles } from '@material-ui/core/styles';
 
 const precedence = {
@@ -24,6 +25,7 @@ const Calculator = () => {
     const[currentNumber, setCurrentNumber] = React.useState('');
     const[currentOperations, setCurrentOperations] = React.useState([]);
     const[saveOperation, setSaveOperation] = React.useState(false);
+    const[positiveSign, setPositiveSign] = React.useState(true);
 
     const classes = useStyles();
 
@@ -41,12 +43,24 @@ const Calculator = () => {
 
     let handlerCurrentNumberDigit = () => {
         setCurrentNumber(currentNumber.slice(0,currentNumber.length - 1));
+        if (currentNumber.length == 0)
+            setSaveOperation(false);
     }
 
     let addDigit = (digit) => {
         if (!saveOperation)
             setSaveOperation(true);
         setCurrentNumber(currentNumber + digit);
+    }
+
+    let setSign = () => {
+        if (positiveSign) {
+            setCurrentNumber('-' + currentNumber);
+            setPositiveSign(false);
+        } else {
+            setCurrentNumber(currentNumber.slice(1,currentNumber.length));
+            setPositiveSign(true);
+        }
     }
 
     let showOperation = () => {
@@ -70,10 +84,12 @@ const Calculator = () => {
     let clearOperations = () => {
         handlerCurrentOperations([]);
         handlerCurrentNumber('');
+        setSaveOperation(false);
     }
 
     let clearNumber = () => {
         handlerCurrentNumber('');
+        setSaveOperation(false);
     }
 
     let resolveOperation = (currentOperations, currentNumber, level) => {
@@ -81,7 +97,7 @@ const Calculator = () => {
 
         handlerCurrentNumber('');
     }
-
+ 
     let prepareOperation = (currentOperations, currentNumber, level) => {
         let operation = [];
         operation = currentOperations;
@@ -266,7 +282,11 @@ const Calculator = () => {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>
+                        <Sign
+                            setSign={setSign}
+                        />
+                    </td>
                     <td>
                         <Number
                             displayNumber={0}
