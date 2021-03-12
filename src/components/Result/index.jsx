@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const Result = ({ currentNumber, currentOperations, setResult }) => (
-    <div>
-        <Button size="large" variant="outlined" color="primary" onClick={() => setResult(currentOperations, currentNumber, 2)}>
-            =
-        </Button>
-    </div>
+    <Button size="large" variant="outlined" color="primary" onClick={() => setResult(currentOperations, currentNumber, 2)}>
+        =
+    </Button>
 );
 
 Result.propTypes = {

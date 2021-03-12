@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const Number = ({displayNumber, setCurrentNumber}) => (
-    <div>
-        <Button size="large" variant="contained" color="primary" onClick={() => setCurrentNumber(displayNumber)}>
-            {displayNumber}
-        </Button>
-    </div>
+    <Button size="large" variant="contained" color="primary" onClick={() => setCurrentNumber(displayNumber)}>
+        {displayNumber}
+    </Button>
 );
 
 Number.propTypes = {

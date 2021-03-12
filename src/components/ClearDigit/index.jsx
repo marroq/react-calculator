@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const ClearDigit = ({ displayOperator, setDigit }) => (
-    <div>
-        <Button variant="outlined" onClick={() => setDigit()}>
-            {displayOperator}
-        </Button>
-    </div>
+    <Button variant="outlined" onClick={() => setDigit()}>
+        {displayOperator}
+    </Button>
 );
 
 ClearDigit.propTypes = {
     displayOperator: PropTypes.string.isRequired,
-    setClear: PropTypes.func.isRequired,
+    setDigit: PropTypes.func.isRequired,
 };
 
 export default ClearDigit;

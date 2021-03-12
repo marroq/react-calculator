@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
 const Display = ({ number }) => (
-    <div>
-        <TextField id="outlined-basic" variant="outlined" readOnly value={number} /> 
-    </div>
+    <TextField id="outlined-basic" variant="outlined" readOnly value={number} /> 
 );
 
 Display.propTypes = {
